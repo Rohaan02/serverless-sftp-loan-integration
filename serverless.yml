@@ -1,0 +1,35 @@
+service: lendingpad-project10-sftp
+
+frameworkVersion: "3"
+
+custom:
+  dotenv: dotenv.config()
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  environment: ${file(.env.json)}
+
+functions:
+  convertFICSToXML:
+    handler: handler.convertFICSToXML
+    timeout: 190
+    memorySize: 2048
+    events:
+      - http:
+          path: fics-export
+          method: post
+          cors: true
+
+package:
+  exclude:
+    - env.json
+
+  patterns:
+    - "!exclude-me.js"
+    - "!exclude-me-dir/**"
+    - include-me.js
+    - include-me-dir/**
+
+plugins:
+  - serverless-offline
