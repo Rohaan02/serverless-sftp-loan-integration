@@ -22,7 +22,7 @@ async function testSFTPConnection() {
 async function uploadToSFTP(
   sftp,
   localFilePath,
-  subFolder = "", // "fics" or "arcu"
+  subFolder = "", // "fics" or "episys" or "arcu"
   remoteFileName = null
 ) {
   try {
