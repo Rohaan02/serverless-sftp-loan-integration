@@ -20,6 +20,23 @@ functions:
           path: fics-export
           method: post
           cors: true
+  convertEpisysToCSV:
+    handler: handler.convertEpisysToCSV
+    timeout: 190
+    memorySize: 2048
+    events:
+      - http:
+          path: episys-export
+          method: post
+          cors: true
+  convertARCUToJSON:
+    handler: handler.convertARCUToJSON
+    timeout: 190
+    memorySize: 2048
+    events:
+      - http:
+          path: arcu-export
+          method: post
 
 package:
   exclude:

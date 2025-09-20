@@ -5,7 +5,7 @@ const getBorrowerName = (data, reversed = false) => {
   return parts.filter(Boolean).join(reversed ? ", " : " ");
 };
 
-const keyMapping = {
+const ficsKeyMapping = {
   // loan
   loan: {
     loan_type: "loanType.name",
@@ -154,4 +154,4 @@ function transformToXML(data, path) {
   return "";
 }
 
-module.exports = { keyMapping, transformToXML, sanitize, getValueFromPath };
+module.exports = { ficsKeyMapping, transformToXML, sanitize, getValueFromPath };
